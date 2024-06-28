@@ -16,6 +16,20 @@
 
       <!-- 메뉴 -->
       <%- include('_navigation.ejs') %>
+      
+      <div class="user-info col-md-3 text-end">
+        <% if (loggedIn) { %>
+          <span>Logged in as </span>
+          <a class="btn btn-outline-secondary"
+            href="<%= `/users/&{currentUser._id}` %>"
+            >
+              <%= currentUser.username %>
+          </a>
+          <% } else { %>
+            <a class="btn btn-outline-secondary" href="/users/login"login></a>
+            <a class="btn ut-red" href="/users/new">Register</a>
+          <% } %>
+      </div>
     </div>
   </div>
 </header>
